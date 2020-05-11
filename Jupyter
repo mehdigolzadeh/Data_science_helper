@@ -8,6 +8,9 @@ export LC_ALL=C
 
 pew new -p python3.6 -r rep_package/requirements.txt botse
 
+screen -ls => to start
+screen -rd => to return
+
 jupyter notebook --allow-root --no-browser --port=9091 --ip=0.0.0.0
 
 ssh -N -L 8892:localhost:9091 mehdi@10.102.141.242
