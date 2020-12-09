@@ -49,6 +49,30 @@ One word could appear in different forms (i.e., singular and plural noun form) w
 Lemmatization is a NLP process that replaces the suffix of a word with a different one or removes the suffix of a word completely to get the basic word form (lemma).
 
 ## 2.2 Syntactic Word Representation
+Many researchers addressed novel techniques for solving this problem, but many of these techniques still have limitations. In [this study](https://link.springer.com/chapter/10.1007/11766247_28), a model was introduced in which the usefulness of including syntactic and semantic knowledge in the text representation for the selection of sentences comes from technical genomic texts. 
+
+The other solution for syntactic problem is using the n-gram technique for feature extraction.
+
+### 2.2.1. N-Gram
+The n-gram technique is a set of n-word which occurs “in that order” in a text set. This is not a representation of a text, but it could be used as a feature to represent a text.
+BOW is a representation of a text using its words (1-gram) which loses their order (syntactic). It is very common to use 2-gram and 3-gram. In this way, the text feature extracted could detect more information in comparison to 1-gram. 
+
+An example of 2-Gram
+
+  > _After sleeping for four hours, he decided to sleep for another four._
+
+  > _{ “After sleeping”, “sleeping for”, “for four”, “four hours”, “four he” “he decided”, “decided to”, “to sleep”, “sleep for”, “for another”, “another four” }._
+  
+An example of 3-Gram
+
+  > _After sleeping for four hours, he decided to sleep for another four._
+  
+  > _{ “After sleeping for”, “sleeping for four”, “four hours he”, “ hours he decided”, “he decided to”, “to sleep for”, “sleep for another”, “for another four” }._
+  
+### 2.2.2. Syntactic N-Gram
+In [this study](https://link.springer.com/chapter/10.1007/978-3-642-37798-3_1), syntactic n-grams are discussed which is defined by paths in syntactic dependency or constituent trees rather than the linear structure of the text.
+
+
 
 Two common methods of text feature extraction: Weighted word and word embedding techniques:
 
