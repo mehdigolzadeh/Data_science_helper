@@ -4,9 +4,9 @@
 
 Most text classification and document categorization systems can be deconstructed into the following four phases:
 * [Feature extraction](#fe)
-* Dimension reductions
-* Classifier selection
-* Evaluations
+* [Dimension reductions](#dr)
+* [Classifier selection](#cs)
+* [Evaluations](#ev)
 
 In general, the text classification system contains four different levels of scope that can be applied:
   1. Document level: In the document level, the algorithm obtains the relevant categories of a full document.
@@ -15,3 +15,12 @@ In general, the text classification system contains four different levels of sco
   4. Sub-sentence level: In the sub-sentence level, the algorithm obtains the relevant categories of sub-expressions within a sentence (a portion of a sentence )).
   
 # Feature Extraction<a name="fe"></a>
+
+
+# Dimension reductions<a name="dr"></a>
+
+
+# Classifier selection<a name="cs"></a>
+
+
+# Evaluations<a name="ev"></a>
