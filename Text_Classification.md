@@ -14,4 +14,4 @@ In general, the text classification system contains four different levels of sco
   3. Sentence level: In the sentence level, obtains the relevant categories of a single sentence (a portion of a paragraph).
   4. Sub-sentence level: In the sub-sentence level, the algorithm obtains the relevant categories of sub-expressions within a sentence (a portion of a sentence )).
   
-# Feature Extraction(#fe)
+# [Feature Extraction](#fe)
