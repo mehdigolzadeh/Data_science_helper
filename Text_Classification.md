@@ -24,7 +24,6 @@ In many algorithms, especially statistical and probabilistic learning algorithms
 Tokenization is a pre-processing method which breaks a stream of text into words, phrases, symbols, or other meaningful elements called tokens. The main goal of this step is the investigation of the words in a sentence.
 
   >_After sleeping for four hours, he decided to sleep for another four._
-  >
   >_{ “After” “sleeping” “for” “four” “hours” “he” “decided” “to” “sleep” “for” “another” “four” }_
   
 
