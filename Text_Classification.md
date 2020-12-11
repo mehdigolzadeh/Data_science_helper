@@ -73,8 +73,11 @@ An example of 3-Gram
 In [this study](https://link.springer.com/chapter/10.1007/978-3-642-37798-3_1), syntactic n-grams are discussed which is defined by paths in syntactic dependency or constituent trees rather than the linear structure of the text.
 
 
-
 Two common methods of text feature extraction: Weighted word and word embedding techniques:
+## 2.3. Weighted Words
+
+
+
 
 # Dimensionality Reduction<a name="dr"></a>
 
