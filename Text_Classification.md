@@ -74,7 +74,45 @@ In [this study](https://link.springer.com/chapter/10.1007/978-3-642-37798-3_1), 
 
 
 Two common methods of text feature extraction: Weighted word and word embedding techniques:
+
 ## 2.3. Weighted Words
+
+The most basic form of weighted word feature extraction is TF, where each word is mapped to a number corresponding to the number of occurrences of that word in the whole corpora.
+
+### 2.3.1. Bag of Words (BoW)
+
+The bag-of-words model (BoW model) is a reduced and simplified representation of a text document from selected parts of the text, based on specific criteria, such as word frequency.
+
+In a BoW, a body of text, is thought of like a bag of words. Lists of words are created in the BoW process. The words are often representative of the content of a sentence. While grammar and order of appearance are ignored, multiplicity is counted and may be used later to determine the focus points of the documents.
+
+Here is an example of BoW:
+
+>“As the home to UVA’s recognized undergraduate and graduate degree programs in systems engineering. In the UVA Department of Systems and Information Engineering, our students are exposed to a wide range of range”
+
+>Bag-of-Words (BoW)
+>{“As”, “the”, “home”, “to”, “UVA’s”, “recognized”, “undergraduate”, “and”, “graduate”, “degree”, “program”, “in”, “systems”, “engineering”, “in”, “Department”, “Information”,“students”, “ ”,“are”, “exposed”, “wide”, “range” }
+
+>Bag-of-Feature (BoF)
+>Feature = {1,1,1,3,2,1,2,1,2,3,1,1,1,2,1,1,1,1,1,1}
+
+
+## 2.3.3. Term Frequency-Inverse Document Frequency
+
+IDF assigns a higher weight to words with either high or low frequencies term in the document. This combination of TF and IDF is well known as Term Frequency-Inverse document frequency (TF-IDF). 
+
+>W(d,t) = TF(d,t)∗log( N/df(t) )
+
+Here N is the number of documents and d f (t) is the number of documents containing the term t in the corpus. The first term in Equation (1) improves the recall while the second term improves the precision of the word embedding
+
+
+## 2.4. Word Embedding
+
+Word embedding is a feature learning technique in which each word or phrase from the vocabulary is mapped to a N dimension vector of real numbers. Various word embedding methods have been proposed to translate unigrams into understandable input for machine learning algorithms. Recently, the Novel technique of word representation was introduced where word vectors depend on the context of the word called “Contextualized Word Representations” or “Deep Contextualized Word Representations”.
+
+### 2.4.1. Word2Vec
+
+An improved word embedding architecture. The Word2Vec approach uses shallow neural networks with two hidden layers, continuous bag-of-words (CBOW), and the Skip-gram model to create a high dimension vector for each word. The Skip-gram model dives a corpus of words w and context c. This method provides a very powerful tool for discovering relationships in the text corpus as well as similarity between words. For example, this embedding would consider the two words such as “big” and “bigger” close to each other in the vector space it assigns them.
+
 
 
 
