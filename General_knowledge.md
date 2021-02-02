@@ -117,7 +117,7 @@ R Square measures how much of variability in dependent variable can be explained
 
 R Square is calculated by the sum of squared of prediction error divided by the total sum of square which replace the calculated prediction with mean. R Square value is between 0 to 1 and bigger value indicates a better fit between prediction and actual value.
 
-R Square is a good measure to determine how well the model fits the dependent variables. However, it does not take into consideration of overfitting problem. If your regression model has many independent variables, because the model is too complicated, it may fit very well to the training data but performs badly for testing data. That is why Adjusted R Square is introduced because it will penalise additional independent variables added to the model and adjust the metric to prevent overfitting issue.(sklearn)[https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html]
+R Square is a good measure to determine how well the model fits the dependent variables. However, it does not take into consideration of overfitting problem. If your regression model has many independent variables, because the model is too complicated, it may fit very well to the training data but performs badly for testing data. That is why Adjusted R Square is introduced because it will penalise additional independent variables added to the model and adjust the metric to prevent overfitting issue.[sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html)
 
 
 ### Mean Square Error(MSE)/Root Mean Square Error(RMSE)
