@@ -129,13 +129,25 @@ While R Square is a relative measure of how well the model fits dependent variab
 MSE is calculated by the sum of square of prediction error which is real output minus predicted output and then divide by the number of data points. It gives you an absolute number on how much your predicted results deviate from the actual number. You cannot interpret much insights from one single result but it gives you an real number to compare against other model results and help you select the best regression model.
 Root Mean Square Error(RMSE) is the square root of MSE. It is used more commonly than MSE because firstly sometimes MSE value can be too big to compare easily. Secondly, MSE is calculated by the square of error, and thus square root brings it back to the same level of prediction error and make it easier for interpretation.
 
-"""
+```
 from sklearn.metrics import mean_squared_error
 import math
 print(mean_squared_error(Y_test, Y_predicted))
 print(math.sqrt(mean_squared_error(Y_test, Y_predicted)))
 MSE: 2017904593.23
 RMSE: 44921.092965684235
-"""
+```
 
-### Mean Absolute Error(MAE)
+### Mean Absolute Error(MAE)/ Mean Abdolute Percentage Error(MAPE)
+
+Mean Absolute Error(MAE) is similar to Mean Square Error(MSE). However, instead of the sum of square of error in MSE, MAE is taking the sum of absolute value of error.
+
+![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/MAE.png?raw=true)
+
+Compare to MSE or RMSE, MAE is a more direct representation of sum of error terms. MSE gives larger penalisation to big prediction error by square it while MAE treats all errors the same.
+
+```
+from sklearn.metrics import mean_absolute_error
+print(mean_absolute_error(Y_test, Y_predicted))
+MAE: 26745.1109986
+```
