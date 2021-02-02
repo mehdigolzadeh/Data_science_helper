@@ -18,7 +18,7 @@ The **accuracy**: what proportion of photos — both Positive and Negative — w
 Finally, the **F1-score** is the harmonic mean of the precision and recall. This computes to 88%. Fantastic classifier, right? Hold your horses. Take a look again at the matrix, specifically at the classification of cat photos. Only 1 out of 4 cat photos was successfully detected. Moreover, 2 of the 3 photos classified as cats are actually dogs. So why is the F1-score so high?
 
 
-F1-score = 2 × (precision × recall)/(precision + recall)
+**F1-score = 2 × (precision × recall)/(precision + recall)**
 
 
 Precision and recall ( and by extension, the F1-score, which is a function of the two) consider one class , the positive class, to be the class we are interested in. They use only three of the values in the confusion matrix: TP, FP, and FN. The 4th value — TN — is not used in these metrics. You can put any value in the TN cell —0, 100, infinity — and the precision, recall and F1-score will not change.
