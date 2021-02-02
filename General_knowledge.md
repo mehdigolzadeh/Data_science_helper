@@ -1,4 +1,5 @@
 # Metrics for measuring the prediction performance
+## model evaluation in Classification
 ### TP/FP/TN/FN
 In binary classification we have two classes: the so-called positive and negative classes. It is useful to talk about classification metrics using the confusion matrix, which we tally after setting a classification threshold for our binary classifier. The confusion matrix has 4 values, corresponding to the 4 combinations of true and predicted classes. Here’s a typical confusion matrix, with TP, FP, FN and TN representing the four combinations:
 
@@ -28,6 +29,18 @@ To see how the class imbalance affects the accuracy, imagine that now instead of
 A quick calculation shows that the accuracy is now a much lower (100+18)/(400+20)=28%, because cats are now the majority class. A new class proportion will also influence the precision (but not the recall — check!), and thus the F1-score.
 
 What is more important, precision or recall? This really depends on your specific classification problem. Imagine, for example, that your classifier needs to detect diabetes in human patients. “Positive” means the patient has diabetes. “Negative” means that the patient is healthy. (I know, it’s confusing. But that’s medical lingo!). In this case, you probably want to make sure that your classifier has high recall, so that as many diabetics as possible are correctly detected. Take another example — say you are building a video recommendation system, and your classifier predicts Positive for a relevant video and Negative for non-relevant video. You want to make sure that almost all of the recommended videos are relevant to the user, so you want high precision. Life is full of trade-offs, and that’s also true of classifiers. There’s usually a trade-off between good precision and good recall. You usually can’t have both.
+
+
+### Macro/Weighted/Micro
+The next step is combining the per-class F1-scores into a single number, the classifier’s overall F1-score. There are a few ways of doing that. Let’s begin with the simplest one: an arithmetic mean of the per-class F1-scores. This is called the macro-averaged F1-score, or the macro-F1 for short, and is computed as a simple arithmetic mean of our per-class F1-scores:
+
+**Macro-F1 = (F1-class1 + F1-class2 + F1-class3) / num-class --> Same for Macro-precsision and Macro-recall**
+
+When averaging the macro-F1, we gave equal weights to each class. We don’t have to do that: in weighted-average F1-score, or weighted-F1, we weight the F1-score of each class by the number of samples from that class. In our case, we have a total of 25 samples: 6 Cat, 10 Fish, and 9 Hen. The weighted-F1 score is thus computed as follows:
+
+**Weighted-F1 = (num-class1 × F1-class1 + num-class2 × F1-class2 + num-class3 × F1-class) / num-class1+num-class2+num-class3 --> Same for Macro-precsision and Macro-recall**
+
+
 
 ### What is the AUC - ROC Curve?
 When we need to check or visualize the performance of the multi-class classification problem, we use the AUC (Area Under The Curve) ROC (Receiver Operating Characteristics) curve. It is one of the most important evaluation metrics for checking any classification model’s performance. It is also written as AUROC (Area Under the Receiver Operating Characteristics)
@@ -92,3 +105,37 @@ MCC takes into account all four values in the confusion matrix, and a high value
 for our example:
 
 ![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/mccexample.png?raw=true)
+
+
+
+## Model evaluation in regression
+### R Square/Adjusted R Square
+
+R Square measures how much of variability in dependent variable can be explained by the model. It is square of Correlation Coefficient(R) and that is why it is called R Square.
+
+![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/r2.png?raw=true)
+
+R Square is calculated by the sum of squared of prediction error divided by the total sum of square which replace the calculated prediction with mean. R Square value is between 0 to 1 and bigger value indicates a better fit between prediction and actual value.
+
+R Square is a good measure to determine how well the model fits the dependent variables. However, it does not take into consideration of overfitting problem. If your regression model has many independent variables, because the model is too complicated, it may fit very well to the training data but performs badly for testing data. That is why Adjusted R Square is introduced because it will penalise additional independent variables added to the model and adjust the metric to prevent overfitting issue.(sklearn)[https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html]
+
+
+### Mean Square Error(MSE)/Root Mean Square Error(RMSE)
+
+While R Square is a relative measure of how well the model fits dependent variables, Mean Square Error is an absolute measure of the goodness for the fit.
+
+![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/MSE.png?raw=true)
+
+MSE is calculated by the sum of square of prediction error which is real output minus predicted output and then divide by the number of data points. It gives you an absolute number on how much your predicted results deviate from the actual number. You cannot interpret much insights from one single result but it gives you an real number to compare against other model results and help you select the best regression model.
+Root Mean Square Error(RMSE) is the square root of MSE. It is used more commonly than MSE because firstly sometimes MSE value can be too big to compare easily. Secondly, MSE is calculated by the square of error, and thus square root brings it back to the same level of prediction error and make it easier for interpretation.
+
+"""
+from sklearn.metrics import mean_squared_error
+import math
+print(mean_squared_error(Y_test, Y_predicted))
+print(math.sqrt(mean_squared_error(Y_test, Y_predicted)))
+MSE: 2017904593.23
+RMSE: 44921.092965684235
+"""
+
+### Mean Absolute Error(MAE)
