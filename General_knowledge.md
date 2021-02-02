@@ -13,13 +13,21 @@ In our case, dog photos are the positive class, and 18 out of 18+3 photos that w
 
 The **recall** is the number of true positives that are correctly classified (TP/(TP+FN)). From the above matrix it is easy to see that there are 20 true positives, and 18 of them are successfully detected. Thus, the recall is 18/(18+2), or 90%.
 
+The **accuracy**: what proportion of photos — both Positive and Negative — were correctly classified? so the general formula for accuracy is (TP+TN)/(TP+TN+FP+FN).
+
 Finally, the **F1-score** is the harmonic mean of the precision and recall. This computes to 88%. Fantastic classifier, right? Hold your horses. Take a look again at the matrix, specifically at the classification of cat photos. Only 1 out of 4 cat photos was successfully detected. Moreover, 2 of the 3 photos classified as cats are actually dogs. So why is the F1-score so high?
+
+
+F1-score = 2 × (precision × recall)/(precision + recall)
+
 
 Precision and recall ( and by extension, the F1-score, which is a function of the two) consider one class , the positive class, to be the class we are interested in. They use only three of the values in the confusion matrix: TP, FP, and FN. The 4th value — TN — is not used in these metrics. You can put any value in the TN cell —0, 100, infinity — and the precision, recall and F1-score will not change.
 
 To see how the class imbalance affects the accuracy, imagine that now instead of 4 cat photos, we had 100 sets of these 4 photos for a total of 400 photos. Since we use the same classifier, 100 out of 400 of the photos will be correctly classified, and 300 will be misclassified. 
 
 A quick calculation shows that the accuracy is now a much lower (100+18)/(400+20)=28%, because cats are now the majority class. A new class proportion will also influence the precision (but not the recall — check!), and thus the F1-score.
+
+What is more important, precision or recall? This really depends on your specific classification problem. Imagine, for example, that your classifier needs to detect diabetes in human patients. “Positive” means the patient has diabetes. “Negative” means that the patient is healthy. (I know, it’s confusing. But that’s medical lingo!). In this case, you probably want to make sure that your classifier has high recall, so that as many diabetics as possible are correctly detected. Take another example — say you are building a video recommendation system, and your classifier predicts Positive for a relevant video and Negative for non-relevant video. You want to make sure that almost all of the recommended videos are relevant to the user, so you want high precision. Life is full of trade-offs, and that’s also true of classifiers. There’s usually a trade-off between good precision and good recall. You usually can’t have both.
 
 ### What is the AUC - ROC Curve?
 When we need to check or visualize the performance of the multi-class classification problem, we use the AUC (Area Under The Curve) ROC (Receiver Operating Characteristics) curve. It is one of the most important evaluation metrics for checking any classification model’s performance. It is also written as AUROC (Area Under the Receiver Operating Characteristics)
