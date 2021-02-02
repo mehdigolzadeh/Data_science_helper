@@ -31,13 +31,13 @@ Note: Red distribution curve is of the positive class (patients with disease) an
 
 different composition of the AUROC and distribution of TP/TN 
 
-![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve.png?raw=true)
+![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve.png?raw=true)![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve1-1.png?raw=true)
 
-![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve2.png?raw=true)
+![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve2.png?raw=true)![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve2-1.png?raw=true)
 
-![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve3.png?raw=true)
+![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve3.png?raw=true)![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve3-1.png?raw=true)
 
-![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve4.png?raw=true)
+![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve4.png?raw=true)![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/roccurve4-1.png?raw=true)
 
 
 ### The relation between Sensitivity, Specificity, FPR, and Threshold.
