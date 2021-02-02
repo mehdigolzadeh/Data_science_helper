@@ -1,9 +1,25 @@
 # Metrics for measuring the prediction performance
 ### TP/FP/TN/FN
-TP:
-FP:
-TN:
-FN:
+In binary classification we have two classes: the so-called positive and negative classes. It is useful to talk about classification metrics using the confusion matrix, which we tally after setting a classification threshold for our binary classifier. The confusion matrix has 4 values, corresponding to the 4 combinations of true and predicted classes. Here’s a typical confusion matrix, with TP, FP, FN and TN representing the four combinations:
+
+![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/confmatrix.png?raw=true)
+
+Let’s look at a toy example: our data are images of pets, either a dog (🐶), or a cat (🐱). Our classifier detects a pet in each photo, and we would like to measure its performance. 
+Here is the confusion matrix of our photo classifier. We have a total of 24 photos, 18+2=20 dog photos, and 3+1=4 cat photos.
+
+### Precision, Recall, and F1-score
+The **Precision** is the proportion of true positives out of all detected positives, or simply TP/(TP+FP). 
+In our case, dog photos are the positive class, and 18 out of 18+3 photos that were classified as dogs actually contain dogs. The precision is thus 18/21=86%. 
+
+The **recall** is the number of true positives that are correctly classified (TP/(TP+FN)). From the above matrix it is easy to see that there are 20 true positives, and 18 of them are successfully detected. Thus, the recall is 18/(18+2), or 90%.
+
+Finally, the **F1-score** is the harmonic mean of the precision and recall. This computes to 88%. Fantastic classifier, right? Hold your horses. Take a look again at the matrix, specifically at the classification of cat photos. Only 1 out of 4 cat photos was successfully detected. Moreover, 2 of the 3 photos classified as cats are actually dogs. So why is the F1-score so high?
+
+Precision and recall ( and by extension, the F1-score, which is a function of the two) consider one class , the positive class, to be the class we are interested in. They use only three of the values in the confusion matrix: TP, FP, and FN. The 4th value — TN — is not used in these metrics. You can put any value in the TN cell —0, 100, infinity — and the precision, recall and F1-score will not change.
+
+To see how the class imbalance affects the accuracy, imagine that now instead of 4 cat photos, we had 100 sets of these 4 photos for a total of 400 photos. Since we use the same classifier, 100 out of 400 of the photos will be correctly classified, and 300 will be misclassified. 
+
+A quick calculation shows that the accuracy is now a much lower (100+18)/(400+20)=28%, because cats are now the majority class. A new class proportion will also influence the precision (but not the recall — check!), and thus the F1-score.
 
 ### What is the AUC - ROC Curve?
 When we need to check or visualize the performance of the multi-class classification problem, we use the AUC (Area Under The Curve) ROC (Receiver Operating Characteristics) curve. It is one of the most important evaluation metrics for checking any classification model’s performance. It is also written as AUROC (Area Under the Receiver Operating Characteristics)
@@ -55,3 +71,16 @@ TPR⬆️, FPR⬆️ and TPR⬇️, FPR⬇️
 
 ### How to use the AUC ROC curve for the multi-class model?
 In a multi-class model, we can plot N number of AUC ROC Curves for N number classes using the One vs ALL methodology. So for example, If you have three classes named X, Y, and Z, you will have one ROC for X classified against Y and Z, another ROC for Y classified against X and Z, and the third one of Z classified against Y and X.
+
+### Matthews Correlation Coefficient
+So far, we’ve seen some issues with the classic metrics: accuracy is sensitive to class imbalance; precision, recall, and F1-score are asymmetric. So what’s one to do? If both classes are of interest, one can treat a binary classification problem as a multi-class problem with 2 classes, and then calculate the corresponding multi-class metrics: micro- or macro-averaged precision, recall, and F1-score. 
+For binary classification, there is another (and arguably more elegant) solution: treat the true class and the predicted class as two (binary) variables, and compute their correlation coefficient (in a similar way to computing correlation coefficient between any two variables). The higher the correlation between true and predicted values, the better the prediction. This is the phi-coefficient (φ), rechristened Matthews Correlation Coefficient (MCC) when applied to classifiers. Computing the MCC is not rocket science:
+
+![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/mcc.png?raw=true)
+
+Some nice properties of MCC can be easily derived from this formula: when the classifier is perfect (FP = FN = 0) the value of MCC is 1, indicating perfect positive correlation. Conversely, when the classifier always misclassifies (TP = TN = 0), we get a value of -1, representing perfect negative correlation (in this case, you can simply reverse the classifier’s outcome to get the ideal classifier). In fact, MCC value is always between -1 and 1, with 0 meaning that the classifier is no better than a random flip of a fair coin. MCC is also perfectly symmetric, so no class is more important than the other; if you switch the positive and negative, you’ll still get the same value.
+MCC takes into account all four values in the confusion matrix, and a high value (close to 1) means that both classes are predicted well, even if one class is disproportionately under- (or over-) represented.
+
+for our example:
+
+![alt text](https://github.com/mehdigolzadeh/Data_science_helper/blob/master/images/mccexample.png?raw=true)
