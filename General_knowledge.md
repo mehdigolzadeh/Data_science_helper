@@ -1,5 +1,5 @@
 # Metrics for measuring the prediction performance
-## model evaluation in Classification
+## Evaluation of classification models
 ### TP/FP/TN/FN
 In binary classification we have two classes: the so-called positive and negative classes. It is useful to talk about classification metrics using the confusion matrix, which we tally after setting a classification threshold for our binary classifier. The confusion matrix has 4 values, corresponding to the 4 combinations of true and predicted classes. Here’s a typical confusion matrix, with TP, FP, FN and TN representing the four combinations:
 
@@ -108,7 +108,7 @@ for our example:
 
 
 
-## Model evaluation in regression
+## Evaluation of regression models
 ### R Square/Adjusted R Square
 
 R Square measures how much of variability in dependent variable can be explained by the model. It is square of Correlation Coefficient(R) and that is why it is called R Square.
