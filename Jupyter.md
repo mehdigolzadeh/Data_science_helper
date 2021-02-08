@@ -8,8 +8,17 @@ export LC_ALL=C
 
 pew new -p python3.6 -r rep_package/requirements.txt botse
 
-screen -ls => to start
-screen -rd => to return
+**screen** => to start the screen
+
+**screen -ls** => to check the list of screens
+
+**ctrl-A+D** detach the screen
+
+**ctrl-A+C** switch between screens
+
+**screen -r ID** => to return to screen with the ID
+
+**screen -rd** => to return
 
 jupyter notebook --allow-root --no-browser --port=9091 --ip=0.0.0.0
 
