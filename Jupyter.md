@@ -24,6 +24,12 @@ jupyter notebook --allow-root --no-browser --port=9091 --ip=0.0.0.0
 
 ssh -N -L 8892:localhost:9091 mehdi@10.102.141.242
 
+list all notebooks -> jupyter notebook list
+shutdown a notebook -> jupyter notebook shutdown port
+shutdown a notebook -> Ctrl + C
+list all process -> netstat -tulpn
+kill a process with PID -> kill -9 pid
+
 
 ## Download package in notebook
 
